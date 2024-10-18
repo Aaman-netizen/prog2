@@ -73,6 +73,10 @@ def main():
     sphere_volume_parallel1(n, d, np)
     end = pc()
     print(f'Time required for 10 parallell1 runs: {round(end - start, 2)} seconds!')
+    start = pc()
+    sphere_volume_parallel1(n, d, np)
+    end = pc()
+    print(f'Time required for 10 parallell2 runs: {round(end - start, 2)} seconds!')
 
 
 if __name__ == '__main__':
