@@ -51,8 +51,8 @@ def sphere_volume_parallel2(n, d, np):
     dims = []
     npp = n / np
     for i in range(np):
-        dots.append(npp)
-        dims.append(d)
+        dots.append(npp*np)
+        dims.append(d*np)
 
     with future.ProcessPoolExecutor() as ex:
         vols = list(ex.map(sphere_volume, dots, dims))
