@@ -42,7 +42,7 @@ def sphere_volume_parallel1(n, d, np):
 
 def sphere_volume_parallel2(n, d, np):
     # parallel code - parallelize actual computations by splitting data
-    npp = n / np
+    npp = int(n / np)
     dots = [npp for i in range(np)]
     dims = [d for i in range(np)]
     with future.ProcessPoolExecutor() as ex:
