@@ -33,8 +33,8 @@ def hypersphere_exact(n, d):
 def sphere_volume_parallel1(n, d, np):
      #using multiprocessor to perform 10 iterations of volume function
 
-     dots = [n for i in np]
-     dims = [d for i in np]
+     dots = [n for i in range(np)]
+     dims = [d for i in range(np)]
      with future.ProcessPoolExecutor() as ex:
          vols = list(ex.map(sphere_volume, dots, dims))
      return sum(vols)/len(vols)
@@ -43,8 +43,8 @@ def sphere_volume_parallel1(n, d, np):
 def sphere_volume_parallel2(n, d, np):
     # parallel code - parallelize actual computations by splitting data
     npp = n / np
-    dots = [npp for i in np]
-    dims = [d for i in np]
+    dots = [npp for i in range(np)]
+    dims = [d for i in range(np)]
     with future.ProcessPoolExecutor() as ex:
         vols = list(ex.map(sphere_volume, dots, dims))
     return sum(vols) / len(vols)
